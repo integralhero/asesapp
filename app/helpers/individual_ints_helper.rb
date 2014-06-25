@@ -1,0 +1,2 @@
+module IndividualIntsHelper
+end

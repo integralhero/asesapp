@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @individual_int.location %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @individual_int.user_id %>
+</p>
+
+<p>
+  <strong>Dt:</strong>
+  <%= @individual_int.dt %>
+</p>
+
+<%= link_to 'Edit', edit_individual_int_path(@individual_int) %> |
+<%= link_to 'Back', individual_ints_path %>

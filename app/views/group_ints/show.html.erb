@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @group_int.location %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @group_int.user_id %>
+</p>
+
+<p>
+  <strong>Dt:</strong>
+  <%= @group_int.dt %>
+</p>
+
+<%= link_to 'Edit', edit_group_int_path(@group_int) %> |
+<%= link_to 'Back', group_ints_path %>

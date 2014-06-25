@@ -1,0 +1,49 @@
+<h1>Congratulations.</h1>
+<p>We loved reading your written application. We believe that you have what ASES is looking for in a potential intern and we would like to invite you in for a group interview. You can find more details and sign up for a time slot below.</p>
+<BR>
+<b>What to Expect During the Group Interview</b>
+<p>
+We wanted to conduct these group interviews because team dynamic is essential to the “ASES experience”. As such, you will be working together during your interview with a group of your peers. 
+</p>
+<p>
+Two members of the ASES officer team will be observing you and noting how you stand out within a group as well how you seem to mesh with the rest of your team. Based on these evaluations, we will invite a group of people back for individual interviews. You’ll be notified whether or not you’re moving on to the individual interviews by Thursday at midnight.
+</p>
+Attire will be <b>casual</b> for the group interview.<BR>
+<BR>
+You need not prepare anything in advance for the group interview, but <b>please bring your laptop</b>.<BR>
+<BR>
+We look forward to meeting you.<BR>
+<BR>
+<p>
+<b>Regards,</b><BR>
+Emily Xie and Tommy Fang<BR>
+Intern Directors<BR>
+</p>
+<HR>
+
+<h2>Reserve Time:</h2>
+<h4><small>Your current time:
+	<% if @selectedTime != nil%>
+		<%= @selectedTime.dt.strftime("%I:%M %p on %A (%b %d)" ) %> at <%= @selectedTime.location %>
+	<% else %>
+		None. Please Select a time below.
+	<% end %>
+</small></h4>
+
+<h3>Available Times:</h3>
+<% if @nilCount != nil %>
+<%= form_for(@user) do |f| %>
+	<ul>
+	<% @groupInts.each do |inTime| %>
+		<% if inTime.id && inTime.user_id == nil%>
+			<%= f.radio_button :groupInt_id, inTime.id %>
+			<%= inTime.dt.strftime("%I:%M %p on %A (%b %d)" ) %> at <%= inTime.location %><BR>
+		<% end %>
+	<% end %>
+	</ul>
+	<BR><BR>
+	<%= f.submit "Reserve Time", :class => "btn btn-success" %>
+<% end %>
+<% else %>
+Sorry, there are no more times available. Contact dnjiang@stanford.edu to arrange a time.
+<% end %>

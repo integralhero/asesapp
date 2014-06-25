@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  confirmation_code: MyString
+  status: MyString
+  groupInt_id: 
+  individualInt_id: 
+
+two:
+  name: MyString
+  confirmation_code: MyString
+  status: MyString
+  groupInt_id: 
+  individualInt_id: 

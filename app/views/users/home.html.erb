@@ -1,0 +1,8 @@
+<h1>Welcome.</h1>
+<p>Enter your secret code to check your application status.</p>
+<%= bootstrap_form_tag url: '/lookup/', method: 'get' do |f| %>
+  <%= f.text_field :confirmation_code %>
+  <%= f.submit "Go" %>
+<% end %>
+
+

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @user.name %>
+</p>
+
+<p>
+  <strong>Confirmation code:</strong>
+  <%= @user.confirmation_code %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @user.status %>
+</p>
+
+<p>
+  <strong>Groupint:</strong>
+  <%= @user.groupInt_id %>
+</p>
+
+<p>
+  <strong>Individualint:</strong>
+  <%= @user.individualInt_id %>
+</p>
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>
