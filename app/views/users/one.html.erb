@@ -1,3 +1,7 @@
-<h1>Hey <%= @user.name %>!<BR> <small>Thanks for submitting your application</small></h1>
+<% if @user && @user.status == "1" %>
+	<h1>Hey <%= @user.name %>!<BR> <small>Thanks for submitting your application</small></h1>
 
-<p>We are currently reviewing your ASES Intern application and will be notifying you of the next step of the process soon. If you believe that you're seeing this message in error, please email our current president David at <i>dnjiang@stanford.edu</i></p>
+	<p>We are currently reviewing your ASES Intern application and will be notifying you of the next step of the process soon. If you believe that you're seeing this message in error, please email our current president David at <i>dnjiang@stanford.edu</i></p>
+<% else %>
+<h1>Nice Try. <BR> <small>You're not supposed to be here!</small></h1>
+<% end %>

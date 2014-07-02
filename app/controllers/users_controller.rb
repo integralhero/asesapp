@@ -44,10 +44,11 @@ class UsersController < ApplicationController
       oldGroupInt = @user.groupInt_id
       oldIndInt = @user.individualInt_id
 
-      updatingGroup = user_params[:groupInt_id]
+      updatingBoth = user_params[:groupInt_id] && user_params[:individualInt_id]
 
       if @user.update(user_params)
-        if updatingGroup
+        if updatingBoth
+        elsif user_params[:groupInt_id] && !user_params[:individualInt_id]
           newTime = GroupInt.find(@user.groupInt_id)
           newTime.user_id = @user.id
           newTime.save
@@ -91,7 +92,7 @@ class UsersController < ApplicationController
       render :home
     else
       session[:current_user] = @user.id
-      if @user.status == 0
+      if @user.status == "0"
         redirect_to "/users/zero"
       elsif @user.status == "1"
         redirect_to "/users/one" 
@@ -107,33 +108,54 @@ class UsersController < ApplicationController
   end
 
   def one
-    @user = User.find(session[:current_user])
+    if session[:current_user]
+      @user = User.find(session[:current_user])
+    end
   end
 
   def zero
-
+    if session[:current_user]
+      @user = User.find(session[:current_user])
+    end
   end
 
   def two
-    @user = User.find(session[:current_user])
-    @selectedTime = GroupInt.find_by user_id: @user.id
-    @groupInts = GroupInt.all
-    @nilCount = GroupInt.find_by user_id: nil
+    if session[:current_user]
+      @user = User.find(session[:current_user])
+      @selectedTime = GroupInt.find_by user_id: @user.id
+      @groupInts = GroupInt.all
+      @nilCount = GroupInt.find_by user_id: nil
+    end
   end
 
   def three
-    @user = User.find(session[:current_user])
-    @selectedTime = IndividualInt.find_by user_id: @user.id
-    @individualInts = IndividualInt.all
-    @nilCount = IndividualInt.find_by user_id: nil
+    if session[:current_user]
+      @user = User.find(session[:current_user])
+      @selectedTime = IndividualInt.find_by user_id: @user.id
+      @individualInts = IndividualInt.all
+      @nilCount = IndividualInt.find_by user_id: nil
+    end
+
   end
 
   def four
+    if session[:current_user]
+      @user = User.find(session[:current_user])
+    end
   end
 
   def home
+    if session[:current_user]
+      @user = User.find(session[:current_user])
+    end
   end
   
+  def logout
+    reset_session
+    flash[:notice] = "Logged out."
+    redirect_to "/"
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user

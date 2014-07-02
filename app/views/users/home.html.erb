@@ -1,8 +1,12 @@
 <h1>Welcome.</h1>
 <p>Enter your secret code to check your application status.</p>
+<% if @user %>
+	<p class="lead">Hey, <%= @user.name %>. Use your secret code to log back in.</p>
+<% end %>
 <%= bootstrap_form_tag url: '/lookup/', method: 'get' do |f| %>
   <%= f.text_field :confirmation_code %>
   <%= f.submit "Go" %>
 <% end %>
+
 
 

@@ -1,3 +1,4 @@
+<% if @user && @user.status == "0" %>
 <h1>Thank you.</h1>
 <p>It was a pleasure to read your written application. We enjoyed getting to know you, but unfortunately, we are unable to move you on to the next round of interviews.</p>
 <p>
@@ -14,3 +15,6 @@ Once again, thank you so much for taking the time to interview with us; we reall
 Emily Xie and Tommy Fang<BR>
 Intern Directors<BR>
 </p>
+<% else %>
+<h1>Nice Try. <BR> <small>You're not supposed to be here!</small></h1>
+<% end %>

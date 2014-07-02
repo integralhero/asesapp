@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   get '/users/two' => 'users#two'
   get '/users/three' => 'users#three'
   get '/users/four' => 'users#four'
+  get '/logout' => 'users#logout'
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
