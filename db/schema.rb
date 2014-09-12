@@ -11,7 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140625022749) do
+ActiveRecord::Schema.define(version: 20140625021618) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "group_ints", force: true do |t|
     t.string   "location"
@@ -21,7 +24,7 @@ ActiveRecord::Schema.define(version: 20140625022749) do
     t.datetime "updated_at"
   end
 
-  add_index "group_ints", ["user_id"], name: "index_group_ints_on_user_id"
+  add_index "group_ints", ["user_id"], name: "index_group_ints_on_user_id", using: :btree
 
   create_table "individual_ints", force: true do |t|
     t.string   "location"
@@ -31,7 +34,7 @@ ActiveRecord::Schema.define(version: 20140625022749) do
     t.datetime "updated_at"
   end
 
-  add_index "individual_ints", ["user_id"], name: "index_individual_ints_on_user_id"
+  add_index "individual_ints", ["user_id"], name: "index_individual_ints_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "name"
@@ -43,7 +46,7 @@ ActiveRecord::Schema.define(version: 20140625022749) do
     t.datetime "updated_at"
   end
 
-  add_index "users", ["groupInt_id"], name: "index_users_on_groupInt_id"
-  add_index "users", ["individualInt_id"], name: "index_users_on_individualInt_id"
+  add_index "users", ["groupInt_id"], name: "index_users_on_groupInt_id", using: :btree
+  add_index "users", ["individualInt_id"], name: "index_users_on_individualInt_id", using: :btree
 
 end

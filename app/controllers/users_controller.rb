@@ -52,18 +52,20 @@ class UsersController < ApplicationController
           newTime = GroupInt.find(@user.groupInt_id)
           newTime.user_id = @user.id
           newTime.save
-
-          oldTime = GroupInt.find(oldGroupInt)
-          oldTime.user_id = nil
-          oldTime.save
+          if oldGroupInt
+            oldTime = GroupInt.find(oldGroupInt)
+            oldTime.user_id = nil
+            oldTime.save
+          end
         else
           newTime2 = IndividualInt.find(@user.individualInt_id)
           newTime2.user_id = @user.id
           newTime2.save
-
-          oldTime2 = IndividualInt.find(oldIndInt)
-          oldTime2.user_id = nil
-          oldTime2.save
+          if oldIndInt
+            oldTime2 = IndividualInt.find(oldIndInt)
+            oldTime2.user_id = nil
+            oldTime2.save
+          end
         end
 
         format.html { redirect_to :back, notice: 'Time successfully updated.' }
