@@ -1,6 +1,6 @@
 <% if @user && @user.status == "2" %>
 	<h1>Congratulations.</h1>
-	<p>We loved reading your written application. We believe that you have what ASES is looking for in a potential intern and we would like to invite you in for a group interview. You can find more details and sign up for a time slot below.</p>
+	<p>We loved reading your written application. We believe that you have what ASES is looking for in a potential intern and we would like to invite you in for a group interview. Your appointment time has already been assigned to you based on your availability (as indicated by you in your written application). If this has changed and you cannot make your assigned time, please email Emily (emilyxie@stanford.edu) or Tommy (tfang17@stanford.edu) ASAP.</p>
 	<BR>
 	<b>What to Expect During the Group Interview</b>
 	<p>
@@ -22,15 +22,15 @@
 	</p>
 	<HR>
 
-	<h2>Reserve Time:</h2>
+	<h2>Appointment:</h2>
 	<h4><small>Your current time:
 		<% if @selectedTime != nil%>
-			<%= @selectedTime.dt.strftime("%I:%M %p on %A (%b %d)" ) %> at <%= @selectedTime.location %>
+			<b><%= @selectedTime.dt.strftime("%I:%M %p on %A (%b %d)" ) %> at <%= @selectedTime.location %></b>
 		<% else %>
-			None. Please Select a time below.
+			None. Please email David at dnjiang@stanford.edu to confirm a time.
 		<% end %>
 	</small></h4>
-
+	<!--
 	<h3>Available Times:</h3>
 	<% if @nilCount != nil %>
 	<%= form_for(@user) do |f| %>
@@ -47,7 +47,7 @@
 	<% end %>
 	<% else %>
 	Sorry, there are no more times available. Contact dnjiang@stanford.edu to arrange a time.
-	<% end %>
+	<% end %>-->
 <% else %>
 <h1>Nice Try. <BR> <small>You're not supposed to be here!</small></h1>
 <% end %>

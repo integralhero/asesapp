@@ -1,4 +1,4 @@
 class User < ActiveRecord::Base
-  has_one :groupInt
+  belongs_to :groupInt
   has_one :individualInt
 end

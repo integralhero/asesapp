@@ -124,7 +124,7 @@ class UsersController < ApplicationController
   def two
     if session[:current_user]
       @user = User.find(session[:current_user])
-      @selectedTime = GroupInt.find_by user_id: @user.id
+      @selectedTime = GroupInt.find @user.groupInt_id
       @groupInts = GroupInt.all
       @nilCount = GroupInt.find_by user_id: nil
     end
